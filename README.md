@@ -218,36 +218,27 @@ npm run db:studio
 
 Below is a high-level overview of the current data flow in the Acquisitions API. This section will be updated as the project evolves and new features are added.
 
-```mermaid
-flowchart TD
-    A[Client Request] --> B[Request Validation (Zod)]
-    B --> C[Controller Layer]
-    C --> D[Service Layer]
-    D --> E[Database Layer]
-    E --> F[Response]
-    C --> G[Logging & Middleware]
-    D --> G
-    B --> G
-    G --> F
-```
-
 1. **Client Request**
    - The client sends an HTTP request to the API (e.g., sign-up, login, CRUD operations).
+
 2. **Request Validation**
    - Incoming request payloads are validated using Zod schemas to ensure data integrity and prevent invalid data from reaching the business logic.
+
 3. **Controller Layer**
    - Controllers (e.g., `auth.controller.js`) handle the request, invoke validation, and call the appropriate service functions.
+
 4. **Service Layer**
    - Service functions (e.g., `auth.service.js`) contain the business logic, interact with the database via Drizzle ORM, and handle tasks like password hashing (bcrypt) and token generation (jsonwebtoken).
+
 5. **Database Layer**
    - Data is stored and retrieved from the PostgreSQL database using Drizzle ORM and Neon serverless driver.
+
 6. **Response**
    - The controller sends a response back to the client, including status codes, messages, and any relevant data or errors.
+
 7. **Logging & Middleware**
    - All requests and errors are logged using Winston and Morgan. Middleware like Helmet, CORS, and Cookie-Parser handle security, cross-origin requests, and cookie management.
 
 ---
-
-_This data flow will be updated as new features and architectural changes are introduced._
 
 _This README will be updated as the project setup progresses._
