@@ -20,6 +20,7 @@ pids/
 .env
 .env.local
 .env.*.local
+# .env*
 
 # Build output
 dist/
