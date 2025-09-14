@@ -80,6 +80,26 @@ This project is a Node.js API for managing acquisitions. Below is documentation 
 - **Purpose:** Versatile logging library for Node.js, used for logging errors, info, and other messages to files and the console.
 - **Installed with:** `npm install winston`
 
+## Additional Dependencies
+
+### bcrypt
+
+- **Package:** `bcrypt`
+- **Purpose:** Library for hashing passwords securely before storing them in the database.
+- **Installed with:** `npm install bcrypt`
+
+### jsonwebtoken
+
+- **Package:** `jsonwebtoken`
+- **Purpose:** Used for creating and verifying JWT tokens for authentication and authorization.
+- **Installed with:** `npm install jsonwebtoken`
+
+### zod
+
+- **Package:** `zod`
+- **Purpose:** TypeScript-first schema validation library, used for validating request payloads and data structures.
+- **Installed with:** `npm install zod`
+
 ## Commands Used
 
 ### Install ESLint and Prettier
