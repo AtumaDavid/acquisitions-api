@@ -48,6 +48,38 @@ This project is a Node.js API for managing acquisitions. Below is documentation 
 - **Purpose:** CLI tool for managing Drizzle ORM migrations and schema generation.
 - **Installed with:** `npm install -D drizzle-kit`
 
+## Core Middleware & Logging Tools
+
+### Helmet
+
+- **Package:** `helmet`
+- **Purpose:** Secures Express apps by setting various HTTP headers to protect against common vulnerabilities.
+- **Installed with:** `npm install helmet`
+
+### Morgan
+
+- **Package:** `morgan`
+- **Purpose:** HTTP request logger middleware for Node.js, useful for logging incoming requests and debugging.
+- **Installed with:** `npm install morgan`
+
+### CORS
+
+- **Package:** `cors`
+- **Purpose:** Enables Cross-Origin Resource Sharing, allowing your API to be accessed from different domains.
+- **Installed with:** `npm install cors`
+
+### Cookie-Parser
+
+- **Package:** `cookie-parser`
+- **Purpose:** Parses cookies attached to client requests, making them easily accessible in your Express app.
+- **Installed with:** `npm install cookie-parser`
+
+### Winston
+
+- **Package:** `winston`
+- **Purpose:** Versatile logging library for Node.js, used for logging errors, info, and other messages to files and the console.
+- **Installed with:** `npm install winston`
+
 ## Commands Used
 
 ### Install ESLint and Prettier
@@ -73,6 +105,14 @@ npm install -D drizzle-kit
 ```
 
 - **Why:** Installs Drizzle Kit CLI for managing database migrations and schema as a development dependency.
+
+### Install Core Middleware & Logging Tools
+
+```bash
+npm install helmet morgan cors cookie-parser winston
+```
+
+- **Why:** Installs essential middleware and logging tools for security, request logging, CORS support, cookie parsing, and logging in the application.
 
 ## Application Run Commands
 
