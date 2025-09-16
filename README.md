@@ -405,4 +405,4 @@ Test coverage reports are generated in the `coverage/` directory after running t
 
 ---
 
-_This README will be updated as the project progresses._
+_This README will be updated as the project progresses_
