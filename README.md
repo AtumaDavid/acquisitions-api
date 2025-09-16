@@ -148,6 +148,18 @@ npm run dev
   ```
   The `--watch` flag automatically restarts the app when changes are detected in the source files, improving development speed and feedback.
 
+### Start Script
+
+```bash
+npm start
+```
+
+- **Why:** Runs the application in production mode using the script defined in `package.json`:
+  ```bash
+  node src/index.js
+  ```
+- Use this command for production deployments (e.g., with Docker or cloud platforms).
+
 ### Linting Code
 
 ```bash
@@ -303,6 +315,58 @@ Below is a high-level overview of the current data flow in the Acquisitions API.
 
 7. **Logging & Middleware**
    - All requests and errors are logged using Winston and Morgan. Middleware like Helmet, CORS, and Cookie-Parser handle security, cross-origin requests, and cookie management.
+
+---
+
+## Docker & Environment Setup
+
+### Development & Production
+
+- **Neon Cloud Database**: The application connects directly to your Neon Cloud database for both development and production.
+- **No Local Postgres or Neon Local**: No local database or proxy is required, avoiding port conflicts and simplifying setup.
+
+### 🚀 Docker Workflow
+
+#### Development
+
+- Start with:
+
+  ```bash
+  docker compose -f docker-compose.dev.yml up --build
+  ```
+
+- The app will be available at: `http://localhost:3000`
+- The database is Neon Cloud, as set in `.env.development`
+
+#### Production
+
+- Start with:
+
+  ```bash
+  docker compose -f docker-compose.prod.yml up --build
+  ```
+
+- The app will be available at: `http://localhost:3000`
+- The database is Neon Cloud, as set in `.env.production`
+
+## 📋 Environment Variables
+
+- Use your Neon Cloud connection string for `DATABASE_URL` in both `.env.development` and `.env.production`.
+
+## 🐛 Troubleshooting
+
+- If you see `address already in use` for port 5432, you can ignore it—your app does not use local Postgres or Neon Local.
+- All database operations go directly to Neon Cloud.
+
+---
+
+## Recent Updates
+
+- Docker Compose files for both development and production have been updated:
+  - **Development:** Now uses Neon Cloud directly, simplifying the setup.
+  - **Production:** Connects to Neon Cloud with robust configuration.
+- See `docker-compose.dev.yml` and `docker-compose.prod.yml` for the latest configuration details.
+- Make sure your `.env.development` and `.env.production` files match the expected environment variables for each setup.
 
 ---
 

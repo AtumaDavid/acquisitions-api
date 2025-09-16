@@ -20,6 +20,8 @@ pids/
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
 # .env*
 
 # Build output
@@ -45,4 +47,4 @@ coverage/
 # Misc
 *.tgz
 *.gz
-*.zip
+*.zip.neon_local/

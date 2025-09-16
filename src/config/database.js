@@ -11,3 +11,5 @@ const sql = neon(
 const db = drizzle(sql);
 
 export { db, sql };
+
+// TODO: Configure for neon local database
