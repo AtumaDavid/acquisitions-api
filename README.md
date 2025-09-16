@@ -214,6 +214,71 @@ npm run db:studio
 
 - **Why:** Launches Drizzle Studio, a web UI for managing and inspecting your database and migrations.
 
+## API Routes
+
+### Authentication Routes
+
+- `POST /api/auth/sign-up` — Register a new user
+- `POST /api/auth/sign-in` — Log in a user
+- `POST /api/auth/sign-out` — Log out a user
+
+### Database Test Route
+
+- `GET /api/db-test` — Test database connectivity and query the users table
+
+## Project Structure
+
+```
+acquisitions-api/
+├── src/
+│   ├── app.js                # Express app setup and middleware
+│   ├── index.js              # Entry point for starting the server
+│   ├── config/
+│   │   ├── database.js       # Database connection setup
+│   │   └── logger.js         # Winston logger configuration
+│   ├── controllers/
+│   │   └── auth.controller.js# Auth controller logic
+│   ├── models/
+│   │   └── user.model.js     # User table schema
+│   ├── routes/
+│   │   ├── auth.routes.js    # Auth endpoints
+│   │   └── dbtest.routes.js  # Database test endpoint
+│   ├── services/
+│   │   └── auth.service.js   # Auth service logic
+│   └── ...                   # Other folders (middleware, utils, validations, etc.)
+├── .env                      # Environment variables
+├── .env.example              # Example env file
+├── package.json              # Project metadata and scripts
+└── README.md                 # Project documentation
+```
+
+---
+
+## Authentication Features
+
+### User Signup
+
+- Endpoint: `POST /api/auth/sign-up`
+- Registers a new user, hashes the password, and returns a JWT token.
+
+### User Sign-in
+
+- Endpoint: `POST /api/auth/sign-in`
+- Authenticates user credentials, validates password, and returns a JWT token if successful.
+- Uses `authenticateUser` and `comparePassword` functions for secure login.
+
+### User Sign-out
+
+- Endpoint: `POST /api/auth/sign-out`
+- Logs out the user by clearing the authentication token.
+
+#### Implementation Notes
+
+- Passwords are hashed using bcrypt before storage.
+- JWT tokens are used for session management and authentication.
+- All authentication actions are logged using Winston for traceability.
+- Request validation is performed using Zod schemas.
+
 ## Data Flow Overview
 
 Below is a high-level overview of the current data flow in the Acquisitions API. This section will be updated as the project evolves and new features are added.
