@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/acquisitions-api
+          images: ${{ secrets.DOCKER_USERNAME }}/acquisitions-api-app
           tags: |
             type=ref,event=branch
             type=sha

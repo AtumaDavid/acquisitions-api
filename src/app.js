@@ -47,7 +47,7 @@ app.use((req, res) => {
 });
 
 // Error-handling middleware for 500 errors and others
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   logger.error('Internal server error:', err);
   res
     .status(err.status || 500)
