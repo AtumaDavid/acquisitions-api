@@ -370,4 +370,39 @@ Below is a high-level overview of the current data flow in the Acquisitions API.
 
 ---
 
+---
+
+## 🧪 Testing Setup
+
+This project uses **Jest** and **Supertest** for API and unit testing.
+
+### Install Testing Dependencies
+
+```bash
+npm install --save-dev jest supertest
+npm init jest@latest
+```
+
+- `jest` is the test runner and assertion library.
+- `supertest` is used for HTTP assertions on Express endpoints.
+- `npm init jest@latest` will help you scaffold a Jest config file (`jest.config.mjs`).
+
+### Run Tests
+
+```bash
+npm test
+```
+
+This will run all tests in files matching `.test.js` or `.spec.js` using the configuration in `jest.config.mjs`.
+
+### Example Test Script
+
+See `test/app.test.js` for sample API endpoint tests.
+
+### Coverage
+
+Test coverage reports are generated in the `coverage/` directory after running tests.
+
+---
+
 _This README will be updated as the project setup progresses._

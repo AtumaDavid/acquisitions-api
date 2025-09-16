@@ -40,4 +40,18 @@ app.use('/api', dbTestRouter);
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 
+// Catch-all 404 handler for unmatched routes
+app.use((req, res) => {
+  logger.warn(`404 Not Found: ${req.method} ${req.originalUrl}`);
+  res.status(404).json({ error: 'Not Found' });
+});
+
+// Error-handling middleware for 500 errors and others
+app.use((err, req, res, next) => {
+  logger.error('Internal server error:', err);
+  res
+    .status(err.status || 500)
+    .json({ error: err.message || 'Internal Server Error' });
+});
+
 export default app;
